@@ -43,7 +43,7 @@ This project demonstrates a full CI/CD pipeline for a Python Flask web applicati
 - Push to Docker Hub
 - Deploy using Docker Compose (optional step for Render or similar)
 
-CI/CD status badge:
+📈 CI/CD Metrics Example (Prometheus):
 
 ![Prometheus Metrics - request_count_total](screenshots/request_count_total.png)
 
