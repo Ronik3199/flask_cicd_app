@@ -45,7 +45,7 @@ This project demonstrates a full CI/CD pipeline for a Python Flask web applicati
 
 CI/CD status badge:
 
-![CI](https://github.com/shayshalevv/flask_cicd_app/actions/workflows/ci.yml/badge.svg)
+![Prometheus Metrics - request_count_total](screenshots/request_count_total.png)
 
 ---
 
@@ -125,7 +125,7 @@ The app is deployed to Render.
 
 ## 📷 Screenshots
 
-![GitHub Actions Running](screenshots/github-actions.png)  
+![GitHub Actions Running](screenshots/github-actions.png)
 _Grafana Dashboard screenshot not available yet_
 
 ---
