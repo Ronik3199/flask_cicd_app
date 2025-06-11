@@ -126,6 +126,7 @@ The app is deployed to Render.
 ## 📷 Screenshots
 
 ![GitHub Actions Running](screenshots/github-actions.png)
+![Grafana Dashboard](screenshots/grafana_dashboard.png)
 _Grafana Dashboard screenshot not available yet_
 
 ---
