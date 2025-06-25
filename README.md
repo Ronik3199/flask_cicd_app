@@ -1,4 +1,4 @@
-# Flask CI/CD Monitoring App
+# Flask CI/CD Monitoring App 
 
 ## Project Overview
 
