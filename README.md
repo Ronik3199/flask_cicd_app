@@ -27,9 +27,9 @@ This project demonstrates a full CI/CD pipeline for a Python Flask web applicati
 
 ---
 
-##  CI/CD Workflow
+## CI/CD Workflow
 
-###  CI (on pull request):
+### CI (on pull request):
 
 - Checkout code
 - Install dependencies
@@ -37,7 +37,7 @@ This project demonstrates a full CI/CD pipeline for a Python Flask web applicati
 - Run unit tests (`test_app.py`)
 - Build Docker image
 
-###  CD (on push to main):
+### CD (on push to main):
 
 - Build Docker image
 - Push to Docker Hub
