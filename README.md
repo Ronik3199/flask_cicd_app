@@ -1,13 +1,13 @@
 
 # Flask CI/CD Monitoring App
 
-## 📌 Project Overview
+##  Project Overview
 
 This project demonstrates a full CI/CD pipeline for a Python Flask web application using GitHub Actions, Docker, Prometheus, and Grafana. The application is instrumented with custom metrics and deployed via Docker Compose in a monitored environment.
 
 ---
 
-## 🚀 Architecture Overview
+##  Architecture Overview
 
 - **Flask Backend**: Exposes API endpoints with metrics for monitoring.
 - **GitHub Actions**: Handles CI/CD pipeline including linting, testing, Docker build, push, and deployment.
@@ -17,7 +17,7 @@ This project demonstrates a full CI/CD pipeline for a Python Flask web applicati
 
 ---
 
-## 🧪 API Endpoints
+##  API Endpoints
 
 | Method | Route         | Description             |
 |--------|---------------|-------------------------|
@@ -27,9 +27,9 @@ This project demonstrates a full CI/CD pipeline for a Python Flask web applicati
 
 ---
 
-## ⚙️ CI/CD Workflow
+##  CI/CD Workflow
 
-### ✅ CI (on pull request):
+###  CI (on pull request):
 
 - Checkout code
 - Install dependencies
@@ -37,19 +37,19 @@ This project demonstrates a full CI/CD pipeline for a Python Flask web applicati
 - Run unit tests (`test_app.py`)
 - Build Docker image
 
-### ✅ CD (on push to main):
+###  CD (on push to main):
 
 - Build Docker image
 - Push to Docker Hub
 - Deploy using Docker Compose (optional step for Render or similar)
 
-📈 CI/CD Metrics Example (Prometheus):
+ CI/CD Metrics Example (Prometheus):
 
 ![Prometheus Metrics - request_count_total](screenshots/request_count_total.png)
 
 ---
 
-## 📊 Monitoring & Observability
+##  Monitoring & Observability
 
 ### Prometheus
 - Scrapes metrics from:
@@ -66,7 +66,7 @@ This project demonstrates a full CI/CD pipeline for a Python Flask web applicati
 
 ---
 
-## 🐳 Docker & Compose
+##  Docker & Compose
 
 To run everything locally:
 
@@ -82,14 +82,14 @@ This launches:
 
 ---
 
-## 📤 Docker Hub
+##  Docker Hub
 
 The built Docker image is pushed to Docker Hub:  
 [Docker Hub Repo](https://hub.docker.com/r/mormoshe7/flask-cicd-app)
 
 ---
 
-## 🌐 Deployment
+##  Deployment
 
 The app is deployed to Render.
 
@@ -97,7 +97,7 @@ The app is deployed to Render.
 
 ---
 
-## 📎 Setup Instructions
+##  Setup Instructions
 
 1. Clone the repo
 2. Set up `.env` if needed
@@ -109,7 +109,7 @@ The app is deployed to Render.
 
 ---
 
-## 👥 Team Info
+##  Team Info
 
 - Name: Shay Shalev  
   ID: 211783519  
@@ -123,7 +123,7 @@ The app is deployed to Render.
 
 ---
 
-## 📷 Screenshots
+##  Screenshots
 
 ![GitHub Actions Running](screenshots/github-actions.png)
 ![Grafana Dashboard](screenshots/grafana_dashboard.png)
@@ -131,6 +131,6 @@ _Grafana Dashboard screenshot not available yet_
 
 ---
 
-## 📝 License
+##  License
 
 MIT
