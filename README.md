@@ -1,6 +1,6 @@
 # Flask CI/CD Monitoring App 
 
-## Project Overview
+## Project Overview 
 
 In this project, we built a complete CI/CD process for a Python Flask application. The process includes lint checks, unit tests, Docker image build, pushing the image to Docker Hub, and deploying to a Render environment. We also added monitoring using Prometheus and Grafana to view metrics from the app and the system.
 
