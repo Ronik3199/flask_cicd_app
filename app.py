@@ -15,7 +15,6 @@ def home():
     REQUEST_COUNT.labels(endpoint='/').inc()
     return "Welcome to the Flask CI/CD App!"
 
-
 @app.route("/status")
 @REQUEST_LATENCY.time()
 def status():
