@@ -1,80 +1,74 @@
-# Flask CI/CD Monitoring App
+# Flask CI/CD Monitoring App - our readme file
 
 ## Project Overview
-
-In this project, we built a complete CI/CD process for a Python Flask application. The process includes lint checks, unit tests, Docker image build, pushing the image to Docker Hub, and deploying to a Render environment. We also added monitoring using Prometheus and Grafana to view metrics from the app and the system.
+In this project, we built a complete CI/CD pipeline for a Python Flask application. The pipeline includes lint checks, unit tests, Docker image building, and deployment. Monitoring is done using Prometheus and Grafana. All services are containerized using Docker and orchestrated via Docker Compose.
 
 ## Architecture Overview
-
-The app includes a Flask service with several endpoints. The CI file runs via GitHub Actions on every Pull Request and performs style checks and unit tests. After that, a Docker image is built and pushed to Docker Hub. Using Docker Compose, we run a local environment with Flask, Prometheus, Grafana, and node-exporter.
+The project includes the following components:
+- **Flask App**: Exposes API endpoints and metrics
+- **GitHub Actions**: CI pipeline for linting, testing, and Docker image builds
+- **Docker Compose**: Orchestrates the local environment
+- **Prometheus**: Collects metrics from Flask and node-exporter
+- **Grafana**: Visualizes the metrics using a dashboard
 
 ## API Endpoints
-
-The application includes the following routes:
-- `/hello` returns a welcome message
-- `/metrics` shows Prometheus metrics
-- `/cicd-test` – this endpoint is commented out and used for demonstrating CI/CD during the presentation
+The application exposes the following routes:
+- `/` – Home route
+- `/status` – Returns the system status
+- `/metrics` – Prometheus metrics endpoint
+- `/cicd-test` – Endpoint used for live CI/CD demo (commented out by default)
 
 ## CI/CD Workflow
-
-When a Pull Request is opened, GitHub Actions runs:
-- Style checks (flake8)
-- Unit tests from the file `test_app.py`
+### On Pull Request:
+- Style checks using `flake8`
+- Unit tests from `test_app.py`
 - Docker image build
 
-When code is pushed to the `main` branch:
+### On Push to Main Branch:
 - Docker image is built
-- Pushed to Docker Hub
-- The project is deployed via Render (or optionally with Docker Compose)
+- Image is pushed to Docker Hub
 
 ## Monitoring & Observability
-
-Prometheus scrapes metrics from the Flask service and from node-exporter.  
-Grafana is configured with a dashboard imported from a JSON file. You can access Grafana at `http://localhost:3000` with user `admin` and password `admin`, and import the dashboard from the JSON file.
+- Prometheus scrapes metrics from the Flask app and `node-exporter`
+- Grafana visualizes metrics using a dashboard imported via JSON
+- Access Grafana at `http://localhost:3000`, login with:
+  - **Username:** `admin`
+  - **Password:** `admin`
 
 ## Docker & Compose
+To run the full system locally:
+```bash
+docker-compose up --build
+```
 
-To run everything locally, all services are defined in the docker-compose file.  
-Use the following command to run the system: docker-compose up --build
-
-
-The following services will be launched:
-- Flask on port 5000
-- Prometheus on port 9090
-- Grafana on port 3000
-- Node Exporter on port 9100
-
-## Docker Hub
-
-The Docker image is pushed to Docker Hub at:  
-https://hub.docker.com/r/mormoshe7/flask-cicd-app
+Services launched:
+- Flask: `http://localhost:5000`
+- Prometheus: `http://localhost:9090`
+- Grafana: `http://localhost:3000`
+- Node Exporter: `http://localhost:9100`
 
 ## Deployment
+- The app can be deployed to cloud services like Render.
+- CI/CD pipeline automates image building and deployment (optional).
 
-The application was deployed to Render and is available at:  
-https://flask-cicd-app-6gzn.onrender.com
+## Dashboard JSON
+- The Grafana dashboard JSON file is included in the repo under `grafana-dashboard.json`
+- You can import it manually from Grafana or use provisioning
 
 ## Setup Instructions
-
-To run the system:
 1. Clone the repo
-2. Make sure all dependencies are installed
-3. Run `docker-compose`
-4. Access the services in the browser:
-   - Flask: http://localhost:5000  
-   - Prometheus: http://localhost:9090  
-   - Grafana: http://localhost:3000
+2. Ensure Docker and Docker Compose are installed
+3. Run `docker-compose up --build`
+4. Access services at:
+   - Flask: `http://localhost:5000`
+   - Prometheus: `http://localhost:9090`
+   - Grafana: `http://localhost:3000`
 
-## Team Info
+## Team Info:
+- **Adi Matok** – 212917926
+- **Shay Shalev** – 211783519
+- **Roni Lubashevski** – 318917556
+- **Mor Moshe** – 323915363
 
-Adi Matok – 212917926  
-Shay Shalev – 211783519  
-Roni Lubashevski – 318917556  
-Mor Moshe – 323915363
-
-GitHub Repo:  
-https://github.com/Ronik3199/flask_cicd_app
-
-
-
-
+## GitHub Repository
+[https://github.com/AdiMatok/flask_cicd_app](https://github.com/AdiMatok/flask_cicd_app)
