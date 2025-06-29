@@ -25,6 +25,6 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: 
+          context: .
           push: true
-          tags: 100adim/flask_app:latest
+          tags: adima11/flask_app:latest
