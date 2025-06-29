@@ -1,6 +1,6 @@
 # Flask CI/CD Monitoring App - our readme file
 
-## Project Overview
+## Project Overview 
 In this project, we built a complete CI/CD pipeline for a Python Flask application. The pipeline includes lint checks, unit tests, Docker image building, and deployment. Monitoring is done using Prometheus and Grafana. All services are containerized using Docker and orchestrated via Docker Compose.
 
 ## Architecture Overview

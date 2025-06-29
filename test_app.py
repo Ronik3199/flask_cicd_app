@@ -13,3 +13,8 @@ def test_status():
     response = client.get('/status')
     assert response.status_code == 200
     assert response.json == {"status": "OK"}
+
+def test_metrics():
+    client = app.test_client()
+    response = client.get('/metrics')
+    assert response.status_code == 200

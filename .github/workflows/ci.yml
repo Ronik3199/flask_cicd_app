@@ -35,3 +35,7 @@ jobs:
 
       - name: Run Tests
         run: python -m unittest test_app.py
+
+      - name: Build Docker image
+        run: docker build -t flask_app .
+
