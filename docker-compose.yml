@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   web:
+    container_name: flask-app
     build: .
     ports:
       - "5000:5000"
@@ -21,6 +22,8 @@ services:
     image: grafana/grafana
     ports:
       - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
     networks:
       - monitoring
 
@@ -33,3 +36,6 @@ services:
 
 networks:
   monitoring:
+
+volumes:
+  grafana-storage:

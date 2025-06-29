@@ -18,13 +18,13 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 3,
   "links": [],
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ceq5t2nq2d79cf"
+        "uid": "feqg4b9lqlfk0c"
       },
       "fieldConfig": {
         "defaults": {
@@ -105,11 +105,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ceq5t2nq2d79cf"
+            "uid": "feqg4b9lqlfk0c"
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "request_count_total",
+          "expr": "node_memory_MemAvailable_bytes",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "legendFormat": "__auto",
@@ -118,7 +118,7 @@
           "useBackend": false
         }
       ],
-      "title": "Total Requests",
+      "title": "Available Memory (Node Exporter)",
       "type": "timeseries"
     }
   ],
@@ -134,7 +134,7 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Flask App Monitoring Dashboard",
-  "uid": "11f23d47-542a-4ca8-ac84-275e7f348958",
+  "title": "Node Exporter Metrics",
+  "uid": "2ae7a90e-da65-46b6-89a1-392be23e2bd6",
   "version": 1
 }
