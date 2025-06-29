@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: CI Build and Test
+    name: CI Pipeline / CI Build and Test
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
@@ -38,4 +38,3 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t flask_app .
-
