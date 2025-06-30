@@ -11,6 +11,10 @@
 
 [https://github.com/100adim/flask\_cicd\_app](https://github.com/100adim/flask_cicd_app)
 
+## CI Badge
+
+[![CI Pipeline](https://github.com/100adim/flask_cicd_app/actions/workflows/ci.yml/badge.svg)](https://github.com/100adim/flask_cicd_app/actions/workflows/ci.yml)
+
 ---
 
 ## Project Overview
@@ -21,140 +25,143 @@ This project implements a complete CI/CD pipeline for a Python Flask application
 
 ## Architecture Overview
 
-The project consists of the following components:
+The system architecture includes the following components:
 
-* **Flask App**: Provides API endpoints and exposes Prometheus metrics
-* **GitHub Actions**: Handles CI pipeline for linting, testing, and Docker image builds
-* **Docker Compose**: Orchestrates local multi-container setup
-* **Prometheus**: Scrapes metrics from the Flask app and node-exporter
-* **Grafana**: Visualizes metrics through custom dashboards
-* **Node Exporter**: Exposes host-level metrics
+* **Flask App**: A backend web service exposing metrics and endpoints
+* **Prometheus**: Collects metrics from Flask, Node Exporter, and Grafana
+* **Grafana**: Visualizes Prometheus metrics via dashboards
+* **Node Exporter**: Provides system-level metrics
+* **Docker & Docker Compose**: Used for containerizing and orchestrating the environment
+* **GitHub Actions**: Manages CI/CD pipelines for testing and deployment
 
 ---
 
 ## API Endpoints
 
-The Flask application exposes the following endpoints:
+The Flask app includes:
 
-* `/` - Home route
-* `/status` - Returns system status
-* `/metrics` - Prometheus metrics endpoint
-* `/cicd-test` - Used for live CI/CD demo (initially commented out)
+* `/` – Home route
+* `/status` – Health check endpoint
+* `/metrics` – Exposes Prometheus metrics
+* `/cicd-test` – Used for live CI/CD demonstration (initially commented out)
 
 ---
 
 ## CI/CD Workflow
 
-### On Pull Request:
+### CI - On Pull Request:
 
-* Lint checks using `flake8`
-* Unit tests using `pytest`
+* Lint using `flake8`
+* Unit testing with `pytest` (via `test_app.py`)
 * Docker image build test
 
-### On Push to Main Branch:
+### CD - On Push to `main`:
 
-* Docker image is built
-* Docker image is pushed to Docker Hub
-* Optional deployment to cloud (e.g. Render)
+* Docker image is built and pushed to Docker Hub
+* Deployment to host service (e.g. Render)
 
 ---
 
-## GitHub Branch Protection Rules
+## Branch Protection Rules
 
-The repository is configured with branch protection rules for the `main` branch to ensure code quality and secure deployment. The following rules are enforced:
+The following rules are applied to the `main` branch:
 
 * Pull request required before merging
-* At least one approval is required
-* Dismiss stale pull request approvals when new commits are pushed
-* Require approval of the most recent reviewable push
-* Require status checks to pass (linked to CI workflow)
-* Require branches to be up to date before merging
-* Require conversation resolution before merging
-* Prevent force pushes to the branch
-* CI job added as a required status check
+* One required approval
+* Dismiss stale approvals on new commits
+* Require approval of most recent commit
+* Require status checks (CI workflow) to pass
+* Require branch to be up to date
+* Require conversation resolution
+* Prevent force pushes
 
 ---
 
 ## Monitoring & Observability
 
-* Prometheus scrapes metrics from Flask and Node Exporter
-* Grafana visualizes metrics using dashboards imported via JSON
+Prometheus scrapes metrics from Flask and Node Exporter. Grafana displays metrics on custom dashboards.
 
-Access Grafana locally:
+Grafana Access:
 
 * URL: [http://localhost:3000](http://localhost:3000)
 * Username: `admin`
 * Password: `admin`
 
-Manual dashboard import:
+To import dashboards:
 
 1. Open Grafana
 2. Click "+" -> "Import"
-3. Upload one of the JSON files from `grafana_dashboards/`
-4. Select "Prometheus" as data source and click "Import"
+3. Upload JSON from repository folder `grafana_dashboards`
+4. Select Prometheus as data source and click Import
 
 ---
 
-## Docker & Docker Compose
+## Docker Setup
 
-Run the system locally with:
+To run the full environment:
 
 ```bash
 docker-compose up --build
 ```
 
-Access services locally:
+Service URLs:
 
-* Flask: [http://localhost:5000](http://localhost:5000)
+* Flask App: [http://localhost:5000](http://localhost:5000)
 * Prometheus: [http://localhost:9090](http://localhost:9090)
 * Grafana: [http://localhost:3000](http://localhost:3000)
 * Node Exporter: [http://localhost:9100](http://localhost:9100)
 
 ---
 
-## Dashboard JSON Files
+## Grafana Dashboard JSON Files
 
-Grafana dashboards are included in:
+Dashboard JSON files are located in the repository folder:
 
-```
+```text
 grafana_dashboards/
 ├── flask_monitoring.json
 └── node_exporter_metrics.json
 ```
 
-These can be imported manually in Grafana.
+These can be imported manually through Grafana's import screen.
 
 ---
 
 ## Screenshots
 
-### Grafana Dashboard
-
-![Grafana Dashboard](screenshots/grafana_dashboard.png)
-
-### Request Count Panel
-
-![Request Count Total](screenshots/request_count_total.png)
-
 ### GitHub Actions Workflow
 
-![GitHub Actions](screenshots/github-actions.png)
+![Workflow Screenshot](https://raw.githubusercontent.com/100adim/flask_cicd_app/main/screenshots/workflow_screenshot.png)
+
+### Grafana Dashboard
+
+![Grafana Screenshot](https://raw.githubusercontent.com/100adim/flask_cicd_app/main/screenshots/grafana_screenshots.png)
 
 ---
 
 ## Setup Instructions
 
 1. Clone the repository
-2. Ensure Docker and Docker Compose are installed
-3. Run `docker-compose up --build`
-4. Access the services via the ports listed above
+2. Make sure Docker & Docker Compose are installed
+3. Run: `docker-compose up --build`
+4. Access services via the URLs above
 
 ---
 
-## Live CI/CD Demonstration Checklist
+## Live Demo Instructions
 
-* Uncomment `/cicd-test` endpoint
-* Commit and push change to GitHub
-* Show GitHub Actions running
+* Uncomment the `/cicd-test` endpoint in `app.py`
+* Commit and push the change to GitHub
+* Show GitHub Actions being triggered
 * Access `http://localhost:5000/cicd-test` to verify deployment
-* View updated metrics in Grafana dashboard
+* Show metrics updating in Grafana
+
+---
+
+## Deliverables Summary
+
+* GitHub repo with all code, configs, dashboards, and workflows
+* `README.md` with explanations, screenshots, and CI badge
+* Unit tests located in `test_app.py`
+* Word document with team member details and repo link
+* Live CI/CD demo as described in the instructions
