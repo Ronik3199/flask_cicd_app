@@ -112,6 +112,7 @@
           "expr": "request_count_total",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
+          "instant": false,
           "legendFormat": "__auto",
           "range": true,
           "refId": "A",
@@ -136,5 +137,5 @@
   "timezone": "browser",
   "title": "Flask Monitoring",
   "uid": "fc52135c-1d70-40b4-a64b-ba17daaceb20",
-  "version": 1
+  "version": 2
 }
