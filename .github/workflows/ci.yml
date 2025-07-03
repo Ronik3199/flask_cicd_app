@@ -10,10 +10,15 @@ on:
 
 jobs:
   build:
+<<<<<<< HEAD
     name: CI Pipeline / CI Build and Test
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
+=======
+    name: CI Build and Test
+    runs-on: ubuntu-latest
+>>>>>>> 7d693a82924c567a74d8690d228ccbdc44a8f313
 
     steps:
       - name: Checkout code
@@ -35,6 +40,9 @@ jobs:
 
       - name: Run Tests
         run: python -m unittest test_app.py
+<<<<<<< HEAD
 
       - name: Build Docker image
         run: docker build -t flask_app .
+=======
+>>>>>>> 7d693a82924c567a74d8690d228ccbdc44a8f313

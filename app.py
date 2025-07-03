@@ -29,11 +29,14 @@ def metrics():
         'Content-Type': 'text/plain; version=0.0.4; charset=utf-8'
     }
 
+<<<<<<< HEAD
 # האנדפוינט שמראים לסער ומשחזרים בלייב
  @app.route("/cicd-test")
  def cicd_test():
      return "CI/CD Pipeline Working!", 200
 
+=======
+>>>>>>> 7d693a82924c567a74d8690d228ccbdc44a8f313
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
